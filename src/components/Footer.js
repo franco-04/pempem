@@ -4,7 +4,7 @@ import './styles/Footer.css';
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2024 Pem Pem. Todos los derechos reservados.</p>
+      <h1>© 2024 Pem Pem. Todos los derechos reservados.</h1>
     </footer>
   );
 }
