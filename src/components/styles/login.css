@@ -1,0 +1,69 @@
+/* Estilos para el contenedor principal */
+.login-container {
+    display: flex;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;      /* Centra el contenido verticalmente */
+    height: 100vh;            /* Ocupa toda la altura de la ventana */
+    background-color: #f0f0f0; /* Fondo claro para el contenedor */
+    padding: 20px;            /* Espaciado alrededor */
+}
+
+/* Estilos para el contenedor del formulario */
+.login-form {
+    background-color: #007bff; /* Fondo azul */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;  /* Ancho máximo del formulario */
+    color: white;
+    text-align: center;
+}
+
+/* Imagen en la parte superior del contenedor */
+.login-image {
+    width: 100%;            /* El ancho de la imagen será el mismo que el del contenedor */
+    height: auto;           /* Mantiene la proporción */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; /* Bordes redondeados para integrar la imagen */
+}
+
+/* Estilos para los grupos de entrada */
+.input-group {
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+/* Estilo para el botón de inicio de sesión */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: white;  /* Fondo blanco */
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 5px;
+    color: #007bff;  /* Letras azules */
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;  /* Espacio entre el botón y el formulario */
+}
+
+/* Estilo para el error */
+p {
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}

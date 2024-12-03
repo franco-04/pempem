@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles/Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons'; // Ícono de persona
 
 function Header() {
   return (
@@ -13,7 +15,14 @@ function Header() {
         <a href="/planes">Planes</a>
       </nav>
       <div className="login">
-        <button>Sign In</button>
+        <div className="user-login">
+          <a href="/Login">  {/* Enlace para redirigir a la página de login */}
+            <div className="user-icon-circle">
+              <FontAwesomeIcon icon={faUser} className="user-icon" />
+            </div>
+            <span className="login-text">Sign In</span>
+          </a>
+        </div>
       </div>
     </header>
   );

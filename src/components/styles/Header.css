@@ -9,18 +9,53 @@
   .logo h1 {
     color: white;
   }
+  .login-text {
+    font-size: 14px;
+    color: #333; /* Color del texto */
+    text-align: center;
+  }
   
   .menu a {
     margin: 0 10px;
     text-decoration: none;
     color: white;
   }
-  
-  .login button {
-    background-color: white;
-    color: #6ec1e4;
+  .login-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #6ec1e4;
+    color: white;
     border: none;
-    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
   }
   
+  .login-button:hover {
+    background-color: #6ec1e4;
+  }
+  .user-icon {
+    font-size: 18px; /* Tamaño reducido del ícono */
+  }
+  
+  .user-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .user-icon-circle {
+    width: 40px; /* Tamaño reducido */
+    height: 40px; /* Tamaño reducido */
+    background-color: #6ec1e4; /* Color de fondo */
+    color: white; /* Color del ícono */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px; /* Espacio entre el círculo y el texto */
+    border: 3px solid white; /* Borde blanco extra */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  }
