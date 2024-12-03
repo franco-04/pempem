@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons'; // Ícono de persona
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-function Header() {
+function Header({ user, onLogout }) {
   return (
     <header className="header">
       <div className="logo">
@@ -16,12 +16,24 @@ function Header() {
       </nav>
       <div className="login">
         <div className="user-login">
-          <a href="/Login">  {/* Enlace para redirigir a la página de login */}
-            <div className="user-icon-circle">
-              <FontAwesomeIcon icon={faUser} className="user-icon" />
-            </div>
-            <span className="login-text">Sign In</span>
-          </a>
+          {user ? (
+            <>
+              <div className="user-icon-circle">
+                <FontAwesomeIcon icon={faUser} className="user-icon" />
+              </div>
+              <span className="login-text">Bienvenido, {user.email}</span>
+              <button onClick={onLogout} className="logout-button">
+                Cerrar sesión
+              </button>
+            </>
+          ) : (
+            <a href="/login">  {/* Enlace para redirigir a la página de login */}
+              <div className="user-icon-circle">
+                <FontAwesomeIcon icon={faUser} className="user-icon" />
+              </div>
+              <span className="login-text">Sign In</span>
+            </a>
+          )}
         </div>
       </div>
     </header>

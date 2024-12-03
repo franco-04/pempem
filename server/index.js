@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-    host: '192.168.100.7',
+    host: 'localhost',
     user: 'root', // Cambiar según tu configuración
     password: '', // Cambiar según tu configuración
     database: 'login_db', // Asegúrate de crear esta base de datos
@@ -26,11 +26,21 @@ app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
     db.query(query, [email, password], (err, results) => {
-        if (err) return res.status(500).json({ error: 'Database error' });
+        if (err) return res.status(500).json({ code: 500, message: 'Database error' });
+        
         if (results.length > 0) {
-            res.json({ message: 'Login successful', user: results[0] });
+            // Usuario encontrado, autenticación exitosa
+            res.status(200).json({
+                code: 200,
+                message: 'Login successful',
+                user: results[0], // Devuelve los detalles del usuario
+            });
         } else {
-            res.status(401).json({ error: 'Invalid credentials' });
+            // Credenciales incorrectas
+            res.status(401).json({
+                code: 401,
+                message: 'Invalid credentials',
+            });
         }
     });
 });
