@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6ec1e4;
+    padding: 10px 20px;
+  }
+  
+  .logo h1 {
+    color: white;
+  }
+  
+  .menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .login button {
+    background-color: white;
+    color: #6ec1e4;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
