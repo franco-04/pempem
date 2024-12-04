@@ -2,7 +2,7 @@ import React from 'react';
 import '../components/styles/MainContent.css';
 import imagen1 from '../assets/imagen1.png';  
 import imagen2 from '../assets/imagen2.png';  
-import imagen4 from '../assets/imagen4.png';  
+import imagen8 from '../assets/imagen8.png';  
 import imagen5 from '../assets/imagen5.png';  
 import imagen6 from '../assets/imagen6.png';  
 import imagen7 from '../assets/imagen7.png'; 
@@ -15,8 +15,8 @@ function Nosotros() {
         <div className="info-content">
           <h4>Pem Pem</h4>
           <div className="text-image-container">
-            <section className="text-image-container img">
-              <img src={imagen4} alt="Mariposa" />
+          <section className="imagess">
+              <img src={imagen8} alt="Mariposa" />
             </section>
             <div className="text">
               <p>La palabra "PeM PeM" es originaria del yokótan, lengua indígena que se habla en las zonas rurales de Tabasco. Su significado es MARIPOSA, este hermoso insecto representa la evolución, pues estas están en un cambio constante, al igual que los niños cada día adquieren nuevos conocimientos que transforman su forma de ver el mundo.</p>
