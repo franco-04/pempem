@@ -9,6 +9,7 @@ import UsuarioTipo from './pages/UsuarioTipo';
 import EjerciciosTipo from './pages/EjerciciosTipo';
 import Cuestionario from './components/Cuestionario';
 import Resultados from './components/Resultados';
+import Ejercicios from './pages/Ejercicios';
 import Login from './Login'; // Ajusta la ruta según sea necesario
 
 
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/ejercicioTipo" element={<EjerciciosTipo />} />
                     <Route path="/cuestionario" element={<Cuestionario />} />
                     <Route path="/resultados" element={<Resultados />} />
+                    <Route path="/ejercicios" element={<Ejercicios />} />
                     <Route path="/login" element={<Login onLogin={handleLogin} />} />
                 </Routes>
                 <Footer />

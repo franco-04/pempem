@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './styles/Cuestionario.css'; // Asegúrate de tener el archivo CSS
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Cuestionario() {
+  const navigate = useNavigate();
   const location = useLocation();
   const { userType, exerciseType } = location.state || {}; // Recibe el estado de EjerciciosTipo
   
@@ -35,6 +36,39 @@ function Cuestionario() {
     relacionPersona: '',
     actividades: ''
   });
+
+
+
+   // Validar si el formulario está completo
+   const validarFormulario = () => {
+    // Comprueba que todos los campos obligatorios tienen un valor
+    return Object.entries(formData).every(([key, value]) => {
+      if (Array.isArray(value)) return value.length > 0; // Para arrays, al menos un valor seleccionado
+      if (key === "diaNacimiento") return value && !isNaN(Date.parse(value)); // Verifica fechas válidas
+      return value !== ""; // Los demás campos deben estar llenos
+    });
+  };
+
+  const debugFormulario = () => {
+    console.log("Formulario:", formData);
+    console.log("Formulario válido:", validarFormulario());
+  };
+  <button type="button" onClick={debugFormulario}>
+  Debug Formulario
+</button>
+
+{!validarFormulario() && (
+  <p className="error">Por favor, completa todos los campos obligatorios.</p>
+)}
+
+  
+
+
+  const handleRedirect = () => {
+    navigate('/ejercicios', { state: { userType, exerciseType } });
+  };
+
+
 
   // Actualiza las respuestas del formulario
   const handleChange = (e) => {
@@ -178,6 +212,19 @@ function Cuestionario() {
     // Relación con la persona (autoritaria, democrática, etc.)
     if (formData.relacionPersona === 'AUTORITARIA') {
       nuevosPuntos.crianza -= 5;
+      nuevosPuntos.crianza += 20;
+    }
+    if (formData.relacionPersona === 'DEMOCRATICA') {
+      nuevosPuntos.crianza -= 5;
+      nuevosPuntos.crianza += 10;
+    }
+    if (formData.relacionPersona === 'PERMISIVA') {
+      nuevosPuntos.crianza -= 5;
+      nuevosPuntos.crianza -= 30;
+    }
+    if (formData.relacionPersona === 'NEGLIGENTE') {
+      nuevosPuntos.crianza -= 5;
+      nuevosPuntos.crianza -= 30;
     }
 
     // Actividades recreativas
@@ -185,6 +232,24 @@ function Cuestionario() {
       nuevosPuntos.escritura += 10;
       nuevosPuntos.crianza += 20;
       nuevosPuntos.madurativos += 25;
+    }
+
+    if (formData.actividades === 'manualidades') {
+      nuevosPuntos.escritura += 20;
+      nuevosPuntos.crianza += 15;
+      nuevosPuntos.madurativos += 20;
+    }
+
+    if (formData.actividades === 'electrónicos') {
+      nuevosPuntos.escritura -= 10;
+      nuevosPuntos.crianza -= 10;
+      nuevosPuntos.madurativos += 20;
+    }
+
+    if (formData.actividades === 'juguetes') {
+      nuevosPuntos.escritura += 10;
+      nuevosPuntos.crianza += 20;
+      nuevosPuntos.madurativos += 10;
     }
 
     // Actualiza el estado con los nuevos puntos
@@ -204,19 +269,30 @@ function Cuestionario() {
           onChange={handleChange}
         />
         <label>Edad del menor:</label>
-        <input
-          type="text"
-          name="edad"
+        <select name="diaNacimiento" onChange={handleChange}>
+          <option value="+39">1</option>
+          <option value="-39">2</option>
+          <option value="+39">3</option>
+          <option value="-39">4</option>
+          <option value="+39">5</option>
+          <option value="-39">6</option>
+          <option value="+39">7</option>
+          <option value="-39">8</option>
           value={formData.edad}
           onChange={handleChange}
-        />
-        <label>Fecha de nacimiento del menor (AAAA-MM-DD):</label>
+        </select>
+
+
         <input
-          type="text"
+          type="date"
           name="diaNacimiento"
           value={formData.diaNacimiento}
           onChange={handleChange}
+          min="2000-01-01" // Fecha mínima permitida
+          max="2024-12-31" // Fecha máxima permitida
         />
+
+
         <label>¿En qué semana concluyó su embarazo?</label>
         <select name="embarazoSemana" onChange={handleChange}>
           <option value="+39">+39</option>
@@ -262,6 +338,12 @@ function Cuestionario() {
           checked={formData.areasAfectadas.includes('MOTRIZ')}
           onChange={handleCheckboxChange}
         /> Motriz
+        <input
+          type="checkbox"
+          name="MADURATIVA"
+          checked={formData.areasAfectadas.includes('MADURATIVA')}
+          onChange={handleCheckboxChange}
+        /> Madurativa
 
         <label>¿Retraso madurativo?</label>
         <select name="retrasoMadurativo" onChange={handleChange}>
@@ -324,11 +406,16 @@ function Cuestionario() {
         <select name="relacionPersona" onChange={handleChange}>
           <option value="AUTORITARIA">Autoritaria</option>
           <option value="DEMOCRATICA">Democrática</option>
+          <option value="PERMISIVA">Permisiva</option>
+          <option value="NEGLIGENTE">Negligente</option>
         </select>
 
         <label>¿Qué actividades recreativas realiza?</label>
         <select name="actividades" onChange={handleChange}>
           <option value="al aire libre">Al aire libre</option>
+          <option value="manualidades">Manualidades</option>
+          <option value="electrónicos">electrónicos</option>
+          <option value="juguetes">Juguetes</option>
         </select>
 
         <button type="button" onClick={actualizarPuntos}>Calcular Puntos</button>
@@ -344,6 +431,20 @@ function Cuestionario() {
           <li>LECTURA: {puntos.lectura}</li>
         </ul>
       </div>
+
+      {/* Botón para redirigir a Ejercicios.js */}
+      {validarFormulario() && (
+              <button
+                type="button"
+                className="boton-finalizar"
+                onClick={handleRedirect}
+              >
+                Finalizar y Continuar
+              </button>
+            )}
+
+
+
     </div>
   );
 }
