@@ -8,12 +8,15 @@ function Login({ onLogin }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false); // Indicador de carga
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
+        setLoading(true); // Activa el indicador de carga
         try {
-            const response = await axios.post('http://localhost:5000/api/login', {
+            const response = await axios.post('https://pempem.com.mx/backend/login.php', {
                 email,
                 password,
             });
@@ -22,14 +25,22 @@ function Login({ onLogin }) {
                 console.log('Login successful:', response.data);
                 alert('Login successful');
                 onLogin(response.data.user); // Usa la función de inicio de sesión
-                navigate('/usuarioTipo'); // Redirige a la ruta deseada
+                navigate('/'); // Redirige a la ruta deseada
             }
         } catch (err) {
-            if (err.response && err.response.data.code === 401) {
-                setError('Invalid credentials');
+            if (err.response) {
+                // Manejo de errores específicos del backend
+                if (err.response.data.code === 401) {
+                    setError('Invalid credentials');
+                } else {
+                    setError(`Error: ${err.response.data.message || 'Unknown error'}`);
+                }
             } else {
+                // Manejo de errores de red u otros
                 setError('An error occurred. Please try again later.');
             }
+        } finally {
+            setLoading(false); // Desactiva el indicador de carga
         }
     };
 
@@ -57,7 +68,9 @@ function Login({ onLogin }) {
                             required
                         />
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit" disabled={loading}>
+                        {loading ? 'Loading...' : 'Login'}
+                    </button>
                 </form>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
             </div>
