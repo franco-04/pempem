@@ -22,7 +22,7 @@ function Login({ onLogin }) {
                 console.log('Login successful:', response.data);
                 alert('Login successful');
                 onLogin(response.data.user); // Usa la función de inicio de sesión
-                navigate('/'); // Redirige a la ruta deseada
+                navigate('/usuarioTipo'); // Redirige a la ruta deseada
             }
         } catch (err) {
             if (err.response && err.response.data.code === 401) {

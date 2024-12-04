@@ -1,12 +1,31 @@
 import React from 'react';
-import '../components/styles/UsuarioTipo.css'; // Asegúrate de que el archivo CSS exista
+import { useNavigate } from 'react-router-dom';
+import '../components/styles/UsuarioTipo.css';
 
 function UsuarioTipo() {
+  const navigate = useNavigate();
+
+  // Maneja la selección del usuario y navega a la página EjerciciosTipo
+  const handleUserSelection = (userType) => {
+    console.log(`Usuario seleccionado: ${userType}`);
+    navigate('/ejercicioTipo', { state: { userType } });
+  };
+
   return (
-    <main> {/* Se puede usar <main> para mejorar la estructura semántica */}
+    <main>
       <div className="container-usuariotipo">
-        <button className="button-usuario">Maestro</button>
-        <button className="button-usuario">Padre de familia</button>
+        <button
+          className="button-usuario"
+          onClick={() => handleUserSelection('Maestro')}
+        >
+          Maestro
+        </button>
+        <button
+          className="button-usuario"
+          onClick={() => handleUserSelection('Padre de familia')}
+        >
+          Padre de familia
+        </button>
       </div>
     </main>
   );

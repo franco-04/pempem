@@ -1,9 +1,11 @@
-// src/components/Cuestionario.js
-
 import React, { useState } from 'react';
 import './styles/Cuestionario.css'; // Asegúrate de tener el archivo CSS
+import { useLocation } from 'react-router-dom';
 
 function Cuestionario() {
+  const location = useLocation();
+  const { userType, exerciseType } = location.state || {}; // Recibe el estado de EjerciciosTipo
+  
   const [puntos, setPuntos] = useState({
     lenguaje: 100,
     crianza: 100,
