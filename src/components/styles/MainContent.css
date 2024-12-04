@@ -252,6 +252,43 @@
 
 
 
+.butterfly-container {
+  position: relative;
+}
+
+.butterfly {
+  position: absolute;
+  top: 100%; /* Empieza fuera del contenedor */
+  left: -50px; /* Inicia a la izquierda */
+  width: 50px;
+  animation: fly 3s cubic-bezier(0.42, 0, 0.58, 1) forwards; /* Duración aumentada */
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg); /* Empieza desde la esquina */
+  }
+  20% {
+    transform: translate(100px, -100px) rotate(45deg); /* Se eleva y gira */
+  }
+  40% {
+    transform: translate(200px, 50px) rotate(90deg); /* Vuela hacia abajo a la derecha */
+  }
+  60% {
+    transform: translate(300px, -150px) rotate(135deg); /* Sube más alto */
+  }
+  80% {
+    transform: translate(350px, -50px) rotate(180deg); /* Se acerca al destino */
+  }
+  100% {
+    transform: translate(400px, 0) rotate(360deg); /* Llega al lado del texto */
+  }
+}
+
+
+
+
+
 
 
 

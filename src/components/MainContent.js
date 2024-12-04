@@ -5,6 +5,7 @@ import imagen2 from '../assets/imagen2.png'; // Importa la imagen desde la ruta 
 import imagen4 from '../assets/imagen4.png'; // Importa la imagen desde la ruta de tu archivo
 import imagen5 from '../assets/imagen5.png'; // Importa la imagen desde la ruta de tu archivo
 import imagen6 from '../assets/imagen6.png'; // Importa la imagen desde la ruta de tu archivo
+import imagen7 from '../assets/imagen7.png'; // Importa la imagen desde la ruta de tu archivo
 
 
 function MainContent() {
@@ -49,7 +50,13 @@ function MainContent() {
               <div className="hexagon"></div>
               <div className="hexagon"></div>
             </div>
-            <h3>Pem Pem</h3>
+            <div className="hero">
+              <div className="butterfly-container">
+                <img src={imagen7} alt="Mariposa" className="butterfly" />
+              </div>
+              <h3>Pem Pem</h3>
+            </div>
+
             
             <div className="hexagons3">
               {/* Puedes añadir hexágonos decorativos aquí */}
