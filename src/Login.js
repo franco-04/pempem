@@ -24,10 +24,8 @@ function Login({ onLogin }) {
             if (response.data.code === 200) {
                 console.log('Login successful:', response.data);
                 alert('Login successful');
-                onLogin(response.data.user); // Llama la función de login del padre
-                navigate('/'); // Redirige al usuario
-            } else {
-                setError('Unexpected response. Please try again.');
+                onLogin(response.data.user); // Usa la función de inicio de sesión
+                navigate('/'); // Redirige a la ruta deseada
             }
         } catch (err) {
             if (err.response) {
