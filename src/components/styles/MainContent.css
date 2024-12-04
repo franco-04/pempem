@@ -180,20 +180,24 @@
   font-size: 1.2rem; /* Tamaño moderado para el texto */
   color: #ffffff; /* Color blanco para el texto */
 }
-
-.right-content button {
-  padding: 10px 20px;
-  font-size: 1.2rem; /* Tamaño más grande para el texto del botón */
-  color: white;
-  background-color: #007bff;
-  border: none;
+.main-content-button {
+  padding: 15px 30px !important; /* Forzar el padding */
+  font-size: 1.2rem !important; /* Forzar el tamaño de la fuente */
+  color: #484444;
+  background-color: #ffffff;
+  justify-content: center;
   border-radius: 5px;
   cursor: pointer;
+  min-width: 800px !important; /* Asegura un ancho mínimo */
+  min-height: 50px !important; /* Asegura una altura mínima */
+  border: 3px solid #007bff;
 }
+
 
 .right-content button:hover {
   background-color: #0056b3;
 }
+
 
 .hexagons {
   display: flex;
@@ -251,18 +255,79 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedor principal */
 .content-container2 {
-  display: flex;
-  flex-direction: row-reverse; /* Invertir el orden de los elementos */
-  justify-content: space-between;
-  align-items: flex-start;
+  display: flex; /* Coloca los elementos uno al lado del otro */
+  justify-content: space-between; /* Asegura separación entre los divs */
+  align-items: flex-start; /* Alinea elementos al inicio vertical */
   width: 95%;
-  max-width: 1500px;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: #6ec1e4;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  gap: 20px; /* Espacio entre los divs */
+  margin-top: 30px;
+  margin-bottom: .1px;
 }
+
+/* Título e imagen */
+.title-image-container {
+  flex: 1; /* Controla el tamaño relativo del contenedor */
+  text-align: center; /* Centra el texto e imagen */
+}
+
+.title-image-container h5 {
+  font-size: 3rem; /* Tamaño del título */
+  color: #ffffff;
+  margin-bottom: 20px; /* Espacio debajo del título */
+  font-weight: bold;
+  margin-top: .1px;
+  margin-bottom: .1px;
+}
+
+.imagen-debajo-del-titulo {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto; /* Centra horizontalmente */
+  display: block;
+  border-radius: 8px; /* Esquinas redondeadas */
+}
+
+
+
+.content-container2 p {
+  flex: 2; /* Controla el tamaño relativo del texto */
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  background-color: #ffffff;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 900px;
+  padding: 30px;
+}
+
+
+
 
 
