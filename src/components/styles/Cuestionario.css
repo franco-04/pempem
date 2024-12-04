@@ -1,0 +1,99 @@
+/* src/styles/Cuestionario.css */
+
+.cuestionario {
+  padding: 30px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+.cuestionario h2 {
+  text-align: center;
+  color: #1565c0;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.cuestionario form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cuestionario label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cuestionario input[type="text"],
+.cuestionario input[type="number"],
+.cuestionario select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.cuestionario input[type="text"]:focus,
+.cuestionario input[type="number"]:focus,
+.cuestionario select:focus {
+  border-color: #1565c0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(21, 101, 192, 0.3);
+}
+
+.cuestionario input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.cuestionario button {
+  padding: 12px 20px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+}
+
+.cuestionario button:hover {
+  background-color: #0d47a1;
+  transform: translateY(-3px);
+}
+
+.cuestionario button:active {
+  transform: translateY(0);
+}
+
+.cuestionario ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.cuestionario ul li {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #e3f2fd;
+  border-left: 5px solid #1565c0;
+  border-radius: 5px;
+}
+
+.cuestionario ul li:nth-child(odd) {
+  background-color: #bbdefb;
+}

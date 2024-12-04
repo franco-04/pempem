@@ -5,7 +5,14 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
 import Planes from './pages/Planes';
-import Login from './Login';
+import UsuarioTipo from './pages/UsuarioTipo';
+import EjerciciosTipo from './pages/EjerciciosTipo';
+import Cuestionario from './components/Cuestionario';
+import Resultados from './components/Resultados';
+import Login from './Login'; // Ajusta la ruta según sea necesario
+
+
+
 
 function App() {
     const [user, setUser] = useState(null);
@@ -38,6 +45,10 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/nosotros" element={<Nosotros />} />
                     <Route path="/planes" element={<Planes />} />
+                    <Route path="/usuarioTipo" element={<UsuarioTipo />} />
+                    <Route path="/ejercicioTipo" element={<EjerciciosTipo />} />
+                    <Route path="/cuestionario" element={<Cuestionario />} />
+                    <Route path="/resultados" element={<Resultados />} />
                     <Route path="/login" element={<Login onLogin={handleLogin} />} />
                 </Routes>
                 <Footer />
